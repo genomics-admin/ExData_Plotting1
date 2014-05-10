@@ -1,0 +1,17 @@
+{
+    "contents" : "######Fetch the data only for 2 days\nd = read.table(\"household_power_consumption.txt\", sep=\";\",header = TRUE, skip = 66637,nrows = 2880)\ncolnames(d)<- c( \"Date\",\"Time\",\"Global_active_power\",\"Global_reactive_power\",\"Voltage\",\"Global_intensity\",\"Sub_metering_1\",\"Sub_metering_2\",\"Sub_metering_3\")\n\n###add date & time as a new column and convert it to date format\nd$DT <- strptime(paste(d$Date,d$Time), format='%d/%m/%Y %H:%M:%S')\n\n###Plot 2 - Creat and save as a PNG with specific image size\npng(\"plot2.png\", width = 480, height = 480)\nplot(d$DT,d$Global_active_power,type='o',pch='',ylab=\"Global Active Power (kilowatts)\", xlab=\"\")\ndev.off()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1399756641235.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4096114859",
+    "id" : "FB44B3E6",
+    "lastKnownWriteTime" : 1399756696,
+    "path" : "~/Sandeep/GitHub/datasciencecoursera/Exploratory Data Analysis/Peer Assessments_Course Project 1/Plot 2.R",
+    "project_path" : "Plot 2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "######Fetch the data only for 2 days\nd = read.table(\"household_power_consumption.txt\", sep=\";\",header = TRUE, skip = 66637,nrows = 2880)\ncolnames(d)<- c( \"Date\",\"Time\",\"Global_active_power\",\"Global_reactive_power\",\"Voltage\",\"Global_intensity\",\"Sub_metering_1\",\"Sub_metering_2\",\"Sub_metering_3\")\n\n###add date & time as a new column and convert it to date format\nd$DT <- strptime(paste(d$Date,d$Time), format='%d/%m/%Y %H:%M:%S')\n\n###Plot 4 - Creat and save as a PNG with specific image size\npng(\"plot4.png\", width = 480, height = 480)\npar(mfrow=c(2,2))\nwith(d,{\n  \n  ###SubPlot 1 - \n  plot(DT,Global_active_power,type='o',pch='',ylab=\"Global Active Power (kilowatts)\", xlab=\"\")\n  \n  ###SubPlot 2 - \n  plot(DT,Voltage,type='o',pch='',ylab=\"Voltage\", xlab=\"datetime\")\n  \n  ###SubPlot 3 - \n  plot_colors <- c(\"black\",\"red\",\"blue\")\n  with(d,plot(DT,Sub_metering_1,xlab=\"\",ylab=\"Energy Sub metering\", type=\"n\"))\n  with(d,points(DT,Sub_metering_1,type='o',pch='',col=plot_colors[1]))\n  with(d,points(DT,Sub_metering_2,type='o',pch='',col=plot_colors[2]))\n  with(d,points(DT,Sub_metering_3,type='o',pch='',col=plot_colors[3]))\n  legend(\"topright\",c(\"Sub_metering_1\",\"Sub_metering_2\",\"Sub_metering_3\"),cex=0.7,lty=1,col=plot_colors)\n  \n  ###SubPlot 4 - \n  plot(DT,Global_reactive_power,type='o',pch='.',ylab=\"Global_reactive_power\", xlab=\"datetime\")\n  \n})\ndev.off()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1399756648179.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3475560759",
+    "id" : "BDD7EC8C",
+    "lastKnownWriteTime" : 1399756766,
+    "path" : "~/Sandeep/GitHub/datasciencecoursera/Exploratory Data Analysis/Peer Assessments_Course Project 1/Plot 4.R",
+    "project_path" : "Plot 4.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
