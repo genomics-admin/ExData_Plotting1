@@ -1,4 +1,5 @@
 ## For Evaluation: Find the code and images in folder "Peer Assessments_Course Project 1". Thanks.
+## For Evaluation: couldn't upload the data file due to big size and slow internet. save the txt file in the "Peer Assessments_Course Project 1" folder before running the code. Thanks.
 ## Introduction
 
 This assignment uses data from
